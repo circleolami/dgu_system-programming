@@ -1,0 +1,14 @@
+1000        test2    start   1000                                             
+1000 001018 first    lda     one                                              
+1003 0c1021          sta     result                                           
+1006 001021 double   lda     result                                           
+1009 20101b          mul     two                                              
+100c 0c1021          sta     result                                           
+100f 001021          lda     result                                           
+1012 28101e          comp    sixteen                                          
+1015 381006          jlt     double                                           
+1018 000001 one      word    1                                                
+101b 000002 two      word    2                                                
+101e 000010 sixteen  word    16                                               
+1021        result   resw    1                                                
+1024                 end     first                                            

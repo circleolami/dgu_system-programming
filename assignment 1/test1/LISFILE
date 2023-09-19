@@ -1,0 +1,12 @@
+1000        test1    start   1000                                             
+1000 001012 first    lda     alpha                                            
+1003 1c1015          sub     beta                                             
+1006 0c1018          sta     delta                                            
+1009 001015          lda     beta                                             
+100c 1c1012          sub     alpha                                            
+100f 0c101b          sta     gamma                                            
+1012 00000a alpha    word    10                                               
+1015 000014 beta     word    20                                               
+1018        delta    resw    1                                                
+101b        gamma    resw    1                                                
+101e                 end     first  
