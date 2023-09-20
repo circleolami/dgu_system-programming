@@ -1,8 +1,6 @@
 # dgu_system-programming
 
-## Intro
-
-동국대학교 시스템소프트웨어와실습 실습 자료입니다.
+동국대학교 시스템소프트웨어와실습 과제
 
 ## Systems, Languages and Tools
 
