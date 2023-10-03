@@ -1,0 +1,22 @@
+1000        test     start   1000                                             
+1000 001024 first    lda     zero                                             
+1003 501031          ldch    charz                                            
+1006 1c102d          sub     diff                                             
+1009 0c1032          sta     alpha                                            
+100c 001024          lda     zero                                             
+100f 041024          ldx     zero                                             
+1012 501030 cloop    ldch    chara                                            
+1015 181027          add     one                                              
+1018 549035          stch    str,x                                            
+101b 2c102a          tix     three                                            
+101e 381012          jlt     cloop                                            
+1021 001024          lda     zero                                             
+1024 000000 zero     word    0                                                
+1027 000001 one      word    1                                                
+102a 000003 three    word    3                                                
+102d 000019 diff     word    25                                               
+1030 61     chara    byte    c'a'                                             
+1031 7a     charz    byte    c'z'                                             
+1032        alpha    resw    1                                                
+1035        str      resb    3                                                
+1038                 end     first                                            

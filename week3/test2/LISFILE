@@ -1,0 +1,17 @@
+1000        test2    start   1000                                             
+1000 00101b first    lda     zero                                             
+1003 04101b          ldx     zero                                             
+1006 509021 cloop    ldch    animal,x                                         
+1009 181018          add     diff                                             
+100c 549028          stch    dest,x                                           
+100f 2c101e          tix     len                                              
+1012 381006          jlt     cloop                                            
+1015 00101b          lda     zero                                             
+1018 000020 diff     word    32                                               
+101b 000000 zero     word    0                                                
+101e 000007 len      word    7                                                
+1021 70656e animal   byte    c'penguin'                                       
+     677569
+     6e
+1028        dest     resb    7                                                
+102f                 end     first                                              
