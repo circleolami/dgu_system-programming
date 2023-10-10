@@ -1,0 +1,22 @@
+1000        test2    start   1000                                             
+1000 001021 first    lda     zero                                             
+1003 041021          ldx     zero                                             
+1006 509027 copy     ldch    str1,x                                           
+1009 281040          comp    dot                                              
+100c 30101b          jeq     replace                                          
+100f 549033 put      stch    str2,x                                           
+1012 2c1024          tix     maxlen                                           
+1015 381006          jlt     copy                                             
+1018 001021          lda     zero                                             
+101b 501033 replace  ldch    str2                                             
+101e 3c100f          j       put                                              
+1021 000000 zero     word    0                                                
+1024 00000c maxlen   word    12                                               
+1027 637574 str1     byte    c'cute.penguin'                                  
+     652e70
+     656e67
+     75696e
+1033 2d     str2     byte    c'-'                                             
+1034        str3     resb    12                                               
+1040 00002e dot      word    46                                               
+1043                 end     first                                            
