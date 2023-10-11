@@ -1,0 +1,6 @@
+test1.
+다음 SIC/XE 프로그램의 즉시 주소 지정방식(immediate addressing, #operand)을 SIC 프로그램으로 수정하고 실행하시오.
+
+test2.
+문제 1에서 table 이후에 저장된 5개의 data(2, 9, 18, 22, 6) 가운데서 최대값을 찾아서
+기억장도 max에 저장하는 어셈블리 프로그램을 작성하되 명령 jsub와 rsub을 사용해서 작성하고 실습하시오. 

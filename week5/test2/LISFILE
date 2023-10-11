@@ -1,0 +1,31 @@
+1000        test     start   1000                                             
+1000 141006 first    stl     retadr                                           
+1003 481009          jsub    init                                             
+1006        retadr   resw    1                                                
+1009 001051 init     lda     zero                                             
+100c 0c104b          sta     index                                            
+100f 0c104e          sta     max                                              
+1012 04104b loop     ldx     index                                            
+1015 009036          lda     table,x                                          
+1018 28104e          comp    max                                              
+101b 381024          jlt     skip                                             
+101e 301024          jeq     skip                                             
+1021 0c104e          sta     max                                              
+1024 00104b skip     lda     index                                            
+1027 181054          add     three                                            
+102a 0c104b          sta     index                                            
+102d 281045          comp    count                                            
+1030 381012          jlt     loop                                             
+1033 4c0000          rsub                                                     
+1036 000002 table    word    2                                                
+1039 000009          word    9                                                
+103c 000012          word    18                                               
+103f 000016          word    22                                               
+1042 000006          word    6                                                
+1045 00000f count    word    15                                               
+1048        total    resw    1                                                
+104b        index    resw    1                                                
+104e        max      resw    1                                                
+1051 000000 zero     word    0                                                
+1054 000003 three    word    3                                                
+1057        last     end     first                                            
