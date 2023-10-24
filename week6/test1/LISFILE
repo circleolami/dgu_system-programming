@@ -1,0 +1,50 @@
+1000        test     start   1000                                             
+1000 001073 first    lda     zero                                             
+1003 041073          ldx     zero                                             
+1006 0c1082          sta     readi                                            
+1009 0c1085          sta     writei                                           
+100c 001079          lda     ten                                              
+100f 0c107f          sta     splited                                          
+1012 041082 loop     ldx     readi                                            
+1015 509069          ldch    src,x                                            
+1018 28107c          comp    delimit                                          
+101b 301021          jeq     skip                                             
+101e 3c1030          j       append                                           
+1021 001082 skip     lda     readi                                            
+1024 0c107f          sta     splited                                          
+1027 001073          lda     zero                                             
+102a 0c1085          sta     writei                                           
+102d 3c105a          j       nxtrd                                            
+1030 001082 append   lda     readi                                            
+1033 28107f          comp    splited                                          
+1036 509069          ldch    src,x                                            
+1039 38103f          jlt     hap                                              
+103c 341048          jgt     tap                                              
+103f 041085 hap      ldx     writei                                           
+1042 549088          stch    head,x                                           
+1045 3c1051          j       nxtwrt                                           
+1048 041085 tap      ldx     writei                                           
+104b 54908b          stch    tail,x                                           
+104e 3c1051          j       nxtwrt                                           
+1051 041085 nxtwrt   ldx     writei                                           
+1054 2c1079          tix     ten                                              
+1057 101085          stx     writei                                           
+105a 041082 nxtrd    ldx     readi                                            
+105d 2c1079          tix     ten                                              
+1060 101082          stx     readi                                            
+1063 381012          jlt     loop                                             
+1066 4c0000          rsub                                                     
+1069 637574 src      byte    c'cute.pingu'                                    
+     652e70
+     696e67
+     75
+1073 000000 zero     word    0                                                
+1076 000001 one      word    1                                                
+1079 00000a ten      word    10                                               
+107c 00002e delimit  word    46                                               
+107f        splited  resw    1                                                
+1082        readi    resw    1                                                
+1085        writei   resw    1                                                
+1088        head     resb    3                                                
+108b        tail     resb    3                                                
+108e        exit     end     first                                            

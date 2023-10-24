@@ -1,0 +1,7 @@
+test1.
+다음 SIC 어셈블리 프로그램에서, src에 저장된 'cute.pingu'을 '.'를 기준으로 분할하여 'cute'는 head에, 
+'pingu'는 tail에 저장하는 SRCFILE을 작성하고 실행하시오. 
+
+test2. 
+문제 1에서 작성된 SIC SRCFILE을 읽어서 각 라인을 LABEL, OPCODE, OPERAND로 분리하여 Intfile에 출력하는 프로그램을 작성하시오. 
+(단, 프로그래밍 언어는 C/C++/Python, Java 등 제한 없음)

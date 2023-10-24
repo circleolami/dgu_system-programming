@@ -1,0 +1,47 @@
+LABEL : test	OPCODE : start	OPERAND : 1000
+LABEL : first	OPCODE : lda	OPERAND : zero
+LABEL : 	OPCODE : ldx	OPERAND : zero
+LABEL : 	OPCODE : sta	OPERAND : readi
+LABEL : 	OPCODE : sta	OPERAND : writei
+LABEL : 	OPCODE : lda	OPERAND : ten
+LABEL : 	OPCODE : sta	OPERAND : splited
+LABEL : loop	OPCODE : ldx	OPERAND : readi
+LABEL : 	OPCODE : ldch	OPERAND : src,x
+LABEL : 	OPCODE : comp	OPERAND : delimit
+LABEL : 	OPCODE : jeq	OPERAND : skip
+LABEL : 	OPCODE : j	OPERAND : append
+LABEL : skip	OPCODE : lda	OPERAND : readi
+LABEL : 	OPCODE : sta	OPERAND : splited
+LABEL : 	OPCODE : lda	OPERAND : zero
+LABEL : 	OPCODE : sta	OPERAND : writei
+LABEL : 	OPCODE : j	OPERAND : nxtrd
+LABEL : append	OPCODE : lda	OPERAND : readi
+LABEL : 	OPCODE : comp	OPERAND : splited
+LABEL : 	OPCODE : ldch	OPERAND : src,x
+LABEL : 	OPCODE : jlt	OPERAND : hap
+LABEL : 	OPCODE : jgt	OPERAND : tap
+LABEL : hap	OPCODE : ldx	OPERAND : writei
+LABEL : 	OPCODE : stch	OPERAND : head,x
+LABEL : 	OPCODE : j	OPERAND : nxtwrt
+LABEL : tap	OPCODE : ldx	OPERAND : writei
+LABEL : 	OPCODE : stch	OPERAND : tail,x
+LABEL : 	OPCODE : j	OPERAND : nxtwrt
+LABEL : nxtwrt	OPCODE : ldx	OPERAND : writei
+LABEL : 	OPCODE : tix	OPERAND : ten
+LABEL : 	OPCODE : stx	OPERAND : writei
+LABEL : nxtrd	OPCODE : ldx	OPERAND : readi
+LABEL : 	OPCODE : tix	OPERAND : ten
+LABEL : 	OPCODE : stx	OPERAND : readi
+LABEL : 	OPCODE : jlt	OPERAND : loop
+LABEL : 	OPCODE : rsub	OPERAND : 
+LABEL : src	OPCODE : byte	OPERAND : c'cute.pingu'
+LABEL : zero	OPCODE : word	OPERAND : 0
+LABEL : one	OPCODE : word	OPERAND : 1
+LABEL : ten	OPCODE : word	OPERAND : 10
+LABEL : delimit	OPCODE : word	OPERAND : 46
+LABEL : splited	OPCODE : resw	OPERAND : 1
+LABEL : readi	OPCODE : resw	OPERAND : 1
+LABEL : writei	OPCODE : resw	OPERAND : 1
+LABEL : head	OPCODE : resb	OPERAND : 3
+LABEL : tail	OPCODE : resb	OPERAND : 3
+LABEL : exit	OPCODE : end	OPERAND : first
