@@ -1,0 +1,66 @@
+1000        test5    start   1000                                             
+1000 3c1009 first    j       begin                                            
+1003 000005 five     word    5                                                
+1006        xxx      resw    1                                                
+1009 00107e begin    lda     zero                                             
+100c 04107e          ldx     zero                                             
+100f 00109c loop     lda     retloop                                          
+1012 0c1099          sta     retad                                            
+1015 041096          ldx     temp                                             
+1018 3c1045          j       getc                                             
+101b 00107b          lda     s                                                
+101e 0c1096          sta     temp                                             
+1021 001096          lda     temp                                             
+1024 201084          mul     four                                             
+1027 0c107b          sta     s                                                
+102a 00109c          lda     retloop                                          
+102d 0c1099          sta     retad                                            
+1030 041096          ldx     temp                                             
+1033 3c1045          j       getc                                             
+1036 18107b          add     s                                                
+1039 0c107b          sta     s                                                
+103c 5410bb          stch    exaddr                                           
+103f 2c1087          tix     twelve                                           
+1042 38100f          jlt     loop                                             
+1045 101096 getc     stx     temp                                             
+1048 04109f          ldx     incnt                                            
+104b 00109f          lda     incnt                                            
+104e 181081          add     one                                              
+1051 0c109f          sta     incnt                                            
+1054 5010a2          ldch    indev                                            
+1057 281093          comp    eof                                              
+105a 3010bb          jeq     exaddr                                           
+105d 28108a          comp    fortyeig                                         
+1060 381045          jlt     getc                                             
+1063 1c108a          sub     fortyeig                                         
+1066 281090          comp    ten                                              
+1069 38106f          jlt     return                                           
+106c 1c108d          sub     seven                                            
+106f 041096 return   ldx     temp                                             
+1072 001099          lda     retad                                            
+1075 0c109c          sta     retloop                                          
+1078 4c0000          rsub                                                     
+107b        s        resw    1                                                
+107e 000000 zero     word    0                                                
+1081 000001 one      word    1                                                
+1084 000004 four     word    4                                                
+1087 00000c twelve   word    12                                               
+108a 000030 fortyeig word    48                                               
+108d 000007 seven    word    7                                                
+1090 00000a ten      word    10                                               
+1093 00003f eof      word    63                                               
+1096        temp     resw    1                                                
+1099        retad    resw    1                                                
+109c        retloop  resw    1                                                
+109f 000000 incnt    word    0                                                
+10a2 303031 indev    byte    c'0010030C1006'                                  
+     303033
+     304331
+     303036
+10ae 303030          byte    c'000005FFFFFF?'                                 
+     303035
+     464646
+     464646
+     3f
+10bb        exaddr   resb    12                                               
+10c7                 end     first                                            
