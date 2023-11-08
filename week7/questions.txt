@@ -1,0 +1,42 @@
+test1. 
+다음에 주어진 SIC/XE 어셈블리 프로그램을 실습 가능한 SIC 표준 버전으로 프로그램을 수정해서 입력하고 실습하시오. 
+
+test5   start   1000
+first   jeq     begin
+five    word    5
+xxx     resw    1
+begin   lda     #0
+        ldx     #0
+        ldt     #12
+loop    jsub    getc    
+        rmo     a,s 
+        shift1  s,4 
+        jsub    getc
+        addr    s,a 
+        stch    exaddr,x 
+        tixr    t 
+        j       loop  
+getc    stx     temp
+        ldx     incnt
+        lda     incnt   
+        add     one
+        sta     incnt 
+        ldch    indev,x 
+        comp    eof 
+        jeq     exaddr 
+        comp    48 
+        jlt     getc 
+        sub     48 
+        comp    #10 
+        jlt     return 
+        sub     #7 
+return  ldx     temp 
+        rsub 
+one     word    1 
+eof     word    63 
+temp    resw    1 
+incnt   word    0 
+indev   byte    c'0010030C1006' 
+        byte    c'000005FFFFFF?' 
+exaddr  resb    12 
+        end     first 
