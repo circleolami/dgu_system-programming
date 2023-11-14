@@ -1,0 +1,84 @@
+test1.
+다음에 주어진 Linux 명령을 입력하고, 실습하시오. 
+    1) 간단한 파일생성: cat 
+        %cat > aunix 
+        Linux consists of two separable parts: the kernel and the systems programs. 
+        The kernel provides the file system, CPU scheduling, memory management, and other operating system functions through system calls. 
+        ^D ...... 입력의 끝 (aunix 파일 생성)
+    2) 생성된 파일 마지막에 리다이렉션을 이용한 문자열 "System Programming!!!" 추가 
+        %echo 'System Programming!!' >> aunix 
+    3) 디렉토리 내용 보기: ls 
+        %ls 
+        %ls -l aunix 
+        %ls -aigFs 
+    4) 파일의 내용보기: cat/head/tail 
+        %cat aunix 
+        %head -2 aunix 
+        %tail -2 aunix 
+    5) 파일이름 바꾸기: mv
+        %mv aunix aunix.ver1
+        %ls -l 
+    6) 디렉토리 만들기: mkdir 
+        %mkdir drtest
+        %ls -lF 
+    7) 다른 디렉토리로 이동: cd
+        %pwd    /*현재 위치(경로) 
+        %cd drtest 
+        %pwd 
+        %cd .. 
+        %pwd 
+    8) 파일 복사: cp 
+        %cp aunix.ver1 aunix.ver2
+        %ls -l
+        %cp aunix.ver1 drtest/aunix.ver3 
+    9) 파일 이동: mv 
+        %mv aunix.ver1 drtest 
+        %ls 
+        %ls -la drtest 
+    10) 파일 내 단어 수 세기: wc 
+        %wc aunix.ver1 
+    11) 파일 삭제: rm 
+        %cd drtest 
+        %ls -l
+        %rm aunix.ver3 
+        %ls 
+    12) 디렉토리 삭제: rmdir 
+        %rm *.*
+        %cd .. 
+        %rmdir drtest 
+        %ls -la 
+
+test2. 
+다음에 주어진 Linux 명령을 입력하고, 실습하시오. 
+    1) 환경변수: 문자열변수: $HOME, $PATH, $MAIL, $USER, $TERM, $SHELL 
+    $echo HOME=$HOME, PATH=$PATH
+    2) 내장변수: $$(셀의 프로세스 id), $0(셀 스크립트 이름), $1...$9(명령어 줄 인수 참조), $*(모든 명령어 줄 인수의 목록), $@($*의 변형)
+    3) 셀 스크립트 파일 작성 
+        $cat > script.sh 
+        #!/bin/sh
+        #This is a sample Born shell script. 
+        echo "the name of the script is $0"
+        echo "the first argument is $1"
+        echo "a list of all the arguments is $*"
+        echo "the script places the date into a temporary file called $1.$$"
+        date > $1.$$ #redirect the output of date 
+        $chmod +x script.sh 
+        $script.sh paul ringo george john 
+    4) .login 파일 보기 
+        $cat .bash_profile | more 
+    5) 터미널 특성 변경: stty 
+        $stty erase '^H'    (^H: back space key)
+    6) 수행중인 프로세스 보기: ps 
+        $ps 
+    7) 지역변수 보기: set 
+        $set 
+    8) 지역변수 설정: set 변수명 = 변수값 
+        변수값: $변수명 
+        $name=kim
+        $echo $name 
+
+test3. 
+다음과 같은 기능을 수행하는 script 파일 test1.sh을 생성하고 실행하시오. 
+    1) date 명령을 사용해서 현재 시간(current time)을 display한다. 
+    2) who 명령을 사용해서 login 되어 있는 사용자 수를 display한다. 
+    3) du 명령을 사용해서 현재 경로를 포함한 file 크기를 display한다. 
